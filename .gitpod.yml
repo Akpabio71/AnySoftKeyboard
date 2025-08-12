@@ -1,0 +1,11 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      echo "Setting up Android SDK..."
+      yes | sdkmanager --licenses
+      sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+      ./gradlew tasks
+  - command: |
+      echo "✅ Android build environment ready. Run './gradlew assembleDebug' to build your APK."
